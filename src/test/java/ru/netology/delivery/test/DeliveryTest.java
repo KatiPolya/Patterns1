@@ -40,6 +40,8 @@ class DeliveryTest {
         $("[name=\"phone\"]").setValue(DataGenerator.generatePhone("ru"));
         $(".checkbox__box").click();
         $(byText("Запланировать")).click();
+        $(".notification__content").shouldBe(Condition.visible, Duration.ofSeconds(15))
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + firstMeetingDate));
 
 
         $(".icon_size_s").click();
